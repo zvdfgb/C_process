@@ -1,5 +1,7 @@
 #include <stdio.h>
-#define N 6
+#include<stdlib.h>
+#include<time.h>
+#define N 100000
 
 // 函数声明
 void quickSort(int arr[], int low, int high);
@@ -8,18 +10,24 @@ void swap(int arr[], int i, int j);
 // 主函数
 int main()
 {
+    //随机生成100000个数字并将其储存到数组中
     int arr[N];
-    int i;
-    printf("please input %d numbers:",N);
+    int i;     //声明储存随机数的数组
+    srand((unsigned int)time(NULL));
+    //初始化随机种子
     for(i=0;i<N;i++)
-    {
-        scanf("%d",&arr[i]);
-    }
+        arr[i] = rand() % 100000;
+    //0~99999的随机数，防止数字太大或太小
+    //下面开始快速排序，并计时
+    clock_t start_1 = clock();
     int n = sizeof(arr)/sizeof(arr[0]);
     quickSort(arr, 0, n-1);
+    clock_t end_1 = clock();
+    double duration_1 = (double)(end_1-start_1)/CLOCKS_PER_SEC;
     printf("Sorted array: \n");
     for (int i=0; i<n; i++)
         printf("%d ", arr[i]);
+    printf("the cost of time is %lf",duration_1);
     return 0;
 }
 
