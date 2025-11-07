@@ -8,12 +8,7 @@
 int main()
 {
 
-    int a[X][Y] = {{1,2,3},
-
-                                             ///a[X][Y]={{2,4,8},
-                                             ///{4,7,9},
-                                             ///{2,5,8},
-                                             ///}
+    int a[X][Y] = {{1,2,9},
                    {4,5,6},
                    {7,8,9},
     } ;
@@ -46,6 +41,7 @@ int main()
     }
     if(ishave==0)
         printf("no saddle number!");
+
     return 0;
 }
 

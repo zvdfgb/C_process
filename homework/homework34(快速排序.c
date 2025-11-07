@@ -1,12 +1,20 @@
 #include <stdio.h>
+#define N 6
 
 // 函数声明
 void quickSort(int arr[], int low, int high);
 void swap(int arr[], int i, int j);
 
 // 主函数
-int main() {
-    int arr[] = {10, 7, 8, 9, 1, 5};
+int main()
+{
+    int arr[N];
+    int i;
+    printf("please input %d numbers:",N);
+    for(i=0;i<N;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
     int n = sizeof(arr)/sizeof(arr[0]);
     quickSort(arr, 0, n-1);
     printf("Sorted array: \n");
@@ -24,7 +32,7 @@ void quickSort(int arr[], int low, int high) {
         // 分区过程
         for (int j = low; j <= high - 1; j++) {
             // 如果当前元素小于或等于枢轴
-            if (arr[j] <= pivot) {
+            if (arr[j] >= pivot) {
                 swap(arr, i, j);
                 i++; // 增加较小元素的索引
             }

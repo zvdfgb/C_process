@@ -6,21 +6,8 @@
 int main()
 {
     //创建一个足够大的数组以插入新的元素，并且使用循环使其持续输入直至输入回车！！
-    int a[100];
-    int index = 0;
-    char ch;
-    printf("the formal array is:");
-    while(1)
-    {
-
-        scanf("%d", &a[index]);
-        index++;
-        ch = getchar();
-        if(ch =='\n')
-            break;
-    }
-    //注意！！！！！！！！！！！！！！！在完成最后一次循环后，index有一次加一了，所以index++实际上是比想象中多运算了一次，所以要在循环后减一！！！！！！！！！！！！！！！！！！！！！！！
-    index=index-1;
+    int index = 9;
+    int a[11] = {1,3,4,5,7,8,9,10,11,12};
     //输入x的值
     int x;
     printf("please input the x:");
