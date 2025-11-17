@@ -12,7 +12,7 @@ int main()
     char nation[][10] = {"CHINA","USA","RUSSZA","UK","FRANCE"};
     printf("the sorted array is:\n");
     insert_sorting(nation,5);
-    for(int i=0;i<5;i++)
+    for(int i=4;i>=0;i--)
     {
         printf("%s\n",nation[i]);
     }
