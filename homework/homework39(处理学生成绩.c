@@ -14,7 +14,7 @@ double var(float ave_s[M]);
 int main()
 {
     float score[M][N] = {{70.0,70.0,70.0,70.0,70.0},
-                         {70.0,70.0,70.0,70.0,70.0},
+                         {70.0,70.0,70.0,70.0,99.5},
                          {70.0,70.0,70.0,70.0,70.0}
     };//用于储存每个学生的成绩！！！
     float ave_s[M],ave_c[N];//用于储存每个学生的平均分，和每个课程的平均分！！
@@ -26,14 +26,14 @@ int main()
     {
         for(j=0;j<N;j++)
         {
-            printf("%g ",score[i][j]);
+            printf("%.1f ",score[i][j]);
         }
         printf("\n");
     }
     printf("\n");
     for(i=0;i<M;i++)
     {
-        printf("the average score of the %dth student is %g\n",i+1,ave_s[i]);
+        printf("the average score of the %dth student is %.1f\n",i+1,ave_s[i]);
     }
     printf("\n");
     for(i=0;i<N;i++)
@@ -41,9 +41,9 @@ int main()
         printf("the average score of the %d project is %g\n",i+1,ave_c[i]);
     }
     printf("\n");
-    printf("the highest score is %g,the %dth student,the %dth project\n",max,h_s+1,h_c+1);
+    printf("the highest score is %.1f,the %dth student,the %dth project\n",max,h_s+1,h_c+1);
     printf("\n");
-    printf("the fangcha of average scores is %g", var(ave_s));
+    printf("the fangcha of average scores is %f", var(ave_s));
     printf("\n");
     return 0;
 }
@@ -90,6 +90,7 @@ void highest(float score[M][N])
             {
                 h_s = i;
                 h_c = j;
+                max=score[i][j];
             }
         }
     }

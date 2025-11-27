@@ -13,10 +13,11 @@ double fn(int n,double x)
     {
         return x;
     }
-    else
+    else if(n>1)
     {
-        return (2*n-1)*x*fn(n-1,x)+ 1.0*(n-1)*fn(n-2,x)/(n*1.0);
+        return ((2*n-1)*x*fn(n-1,x) - (n-1)*fn(n-2,x))/(n*1.0);
     }
+    return 0;
 }
 
 double fn(int n,double x);
@@ -29,6 +30,6 @@ int main()
     scanf("%d %lf", &n, &x);
     double result;
     result = fn(n,x);
-    printf("P(%d,%g):%g",n,x,result);
+    printf("P(%d,%g):%lf",n,x,result);
     return 0;
 }
