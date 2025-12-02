@@ -3,7 +3,7 @@
 //
 
 #include<stdio.h>
-#define N 9
+#define N 7
 //这个函数可以进行对数组的一定范围倒着排序
 void inv(int *a,int left,int right)
 {
@@ -20,7 +20,7 @@ int main()
 {
     //完成第一行的输出，即打印原数组
     printf("The integer is :");
-    int num[N] = {1,2,3,4,5,6,7,8,9};
+    int num[N] = {1,2,3,4,5,6,7};
     for(int i = 0;i<N;i++)
     {
         printf("%d",num[i]);

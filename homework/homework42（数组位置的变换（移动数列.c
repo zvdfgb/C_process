@@ -3,7 +3,7 @@
 //
 
 #include<stdio.h>
-#define N 9
+#define N 7
 
 void r_shift_1(int *a,int n)
 {
@@ -22,7 +22,7 @@ int main()
 {
     //完成第一行的输出，即打印原数组
     printf("The integer is :");
-    int num[N] = {1,2,3,4,5,6,7,8,9};
+    int num[N] = {1,2,3,4,5,6,7};
     for(int i = 0;i<N;i++)
     {
         printf("%d",num[i]);

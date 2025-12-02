@@ -1,77 +1,54 @@
-//
-// Created by mmm on 2025/11/24.
-//
+#include <stdio.h>
 
-#include<stdio.h>
+int isleap(int a);
+int count_days_from_zero(int y, int m, int d);
 
 int main()
 {
-    int count(int y,int m,int d,int year);
-    int sy,sm,sd;
-    int ey,em,ed;
+    int sy, sm, sd;
+    int ey, em, ed;
+
     printf("Please input the starting date:");
-    scanf("%d-%d-%d",&sy,&sm,&sd);
+    scanf("%d-%d-%d", &sy, &sm, &sd);
+
     printf("Please input the ending date:");
-    scanf("%d-%d-%d",&ey,&em,&ed);
+    scanf("%d-%d-%d", &ey, &em, &ed);
+
     int result;
-    result = count(ey,em,ed,ey) - count(sy,sm,sd,ey);
-    printf("dis=%d",result);
+    result = count_days_from_zero(ey, em, ed) - count_days_from_zero(sy, sm, sd);
+    printf("dis=%d\n", result);
     return 0;
 }
 
-//一个判断是否为闰年的函数，是则返回1，反之返回0
 int isleap(int a)
 {
-    if((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0))
+    if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0))
         return 1;
     else
         return 0;
 }
-int isleap(int a);
 
-int count(int y,int m,int d,int year)
+int count_days_from_zero(int y, int m, int d)
 {
-    int month_of_days[12] = {0,31,28,31,30,31,30,31,31,30,31,30};
-    int leap_of_days[12]={0,31,29,31,30,31,30,31,31,30,31,30};
-    int days = 0;
-    if(isleap(y))
+    int month_days[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int total_days = 0;
+
+    for (int i = 1; i < y; i++)
     {
-        for(int i=0;i<=m;i++)
-        {
-            days += leap_of_days[i];
-        }
-        for(int j=year+1;j<=y;j++)
-        {
-            if(isleap(j))
-            {
-                days += 366;
-            }
-            else
-            {
-                days += 365;
-            }
-        }
-        days += d;
-        return days;
+        if (isleap(i))
+            total_days += 366;
+        else
+            total_days += 365;
     }
-    else
+
+    for (int i = 1; i < m; i++)
     {
-        for(int i=0;i<=m;i++)
+        total_days += month_days[i];
+        if (i == 2 && isleap(y))
         {
-            days += month_of_days[i];
+            total_days += 1;
         }
-        for(int j=year+1;j<=y;j++)
-        {
-            if(isleap(j))
-            {
-                days += 366;
-            }
-            else
-            {
-                days += 365;
-            }
-        }
-        days += d;
-        return days;
     }
+    total_days += d;
+    return total_days;
 }
